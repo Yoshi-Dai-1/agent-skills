@@ -1,83 +1,53 @@
 ---
 name: frontend-design-craft
-description: W3C ARIA APGのセマンティック構造およびMaterial 3 / M3 Expressiveデザインシステムに準拠したWeb・アプリフロントエンドUIの構築・検証を行うガイドライン。
+description: W3C ARIAアクセシビリティ仕様、デジタル庁デザインシステム/アクセシビリティガイドライン、およびMaterial 3 Expressiveデザインシステムに準拠したUI構築用Agent Skill。技術スタック非依存の段階的開示（Progressive Disclosure）設計。
 ---
 
 # Frontend Design Craft Skill
 
-## 1. 概要
-本スキルは、アクセシブルなHTML/DOM構造（W3C ARIA APG準拠）と、表現力の高いデザインシステム（Material 3 / M3 Expressive等）を適用してUIコンポーネントおよび画面レイアウトを構築・検証する標準手順を定義する。
+ユーザーインターフェース（UI）の構築・改修において、W3C ARIA APGのアクセシブル構造、デジタル庁ガイドラインに基づく日本語アクセシビリティ仕様、およびMaterial 3 (M3) Expressiveのトークン規約を適用するための実行プロセスを定義する。
 
-## 2. 実行フェーズプロトコル
+## 概要と前提
+- **技術スタック非依存**: プロジェクトのファイル構成やパッケージ設定（`package.json`, `pubspec.yaml` 等）を分析し、既存の技術スタック（HTML/CSS, React, Vue, Flutter, Tailwind CSS等）を特定した上で適用すること。
+- **プロジェクト規約の統合と分離**:
+  - Phase 0において、プロジェクトルートに存在する既存設定ファイル（`tailwind.config.*`, `.eslintrc*`, `theme.*`, `tokens.json`, `.ui-rules.json` 等）を分析し、カラー定義・余白・命名規約を事前に読み込んで適用すること。
+  - リポジトリ直下に `.ui-rules.json` が存在する場合はその設定を最優先で適用すること。存在しない場合、プロジェクト固有のUIカスタムトークンが確定したタイミングで `.ui-rules.json` をスキーマに準拠して新規作成・保存すること。
+  - ビルドや基盤に関わる主要設定ファイル（`tailwind.config.js`, `package.json` 等）の変更が必要な場合は、自律的な上書きを行わず、変更差分（Diff）を提示して人間に指示・承認を求めること。
 
-### Phase 0: 既存環境・設定の読み込み
-1. **プロジェクト設定のスキャン**
-   - リポジトリ直下の設定ファイル（`package.json`, `pubspec.yaml`, `tailwind.config.*`, `.eslintrc*`, `theme.*`, `tokens.json`, `.ui-rules.json` 等）を探索・確認すること。
-   - 既存のカラー定義、余白スケール、コンポーネント構造、技術スタック（React, Vue, Flutter, Tailwind CSS等）を事前に特定すること。
-2. **規約ファイルの優先適用ルール**
-   - リポジトリ直下に `.ui-rules.json` が存在する場合は、最優先でそのトークン・例外ルールを適用すること。
-   - 存在しない場合は本スキルのデフォルト規定（`references/` 配下）を適用すること。
+## 段階的実行フェーズ（Phase Protocol）
 
-### Phase 1: 構造定義（Structural Skeleton）
-1. **セマンティックDOMの適用**
-   - ページ全体およびコンポーネントの構造に W3C ARIA ランドマーク（`header`, `nav`, `main`, `aside`, `footer` 等）およびセマンティックタグを使用すること。
-   - `references/00-foundation/semantic-skeleton.md` の仕様に従うこと。
-2. **レイアウトグリッドの適用**
-   - ブレイクポイント（Compact: <600dp, Medium: 600-839dp, Expanded: 840dp+）に応じたカラム数・マージン・ガターを適用すること。
-   - `references/00-foundation/responsive-grid.md` の仕様に従うこと。
+### Phase 0: 構造定義とアクセシビリティ基礎（Foundation & Semantic Skeleton）
+UI実装を開始する前に、HTML/DOMの骨組みおよび日本語アクセシビリティ規約を確定すること。
+1. **ARIA ランドマークの配置**: `<header>` (banner), `<nav>` (navigation), `<main>` (main), `<aside>` (complementary), `<footer>` (contentinfo) を正しく分離して配置すること。
+2. **レスポンシブブレイクポイントの確認**:
+   - Compact (< 600dp): 4カラム
+   - Medium (600dp - 839dp): 8カラム
+   - Expanded (>= 840dp): 12カラム
+3. **日本語アクセシビリティ・フォーム仕様の適用**:
+   - 行高 `1.5`〜`1.75`、1行あたり 35〜45文字 の可読性制限を適用すること。
+   - フォームエラー時は指示対象を明記し、平易な改善方法を添えること。
+   - 単体で目的が不明なリンク・ボタンテキスト（「こちら」「詳細」等）を禁止すること。
+4. **参照ドキュメント**: 詳細構造および日本語ガイドラインルールは `references/00-foundation/semantic-skeleton.md`, `responsive-grid.md`, `japanese-accessibility.md` を読み込んで適用すること。
 
-### Phase 2: デザインシステム適用（M3 Expressive等）
-1. **デザインシステムの動的選択**
-   - プロジェクト指定または `.ui-rules.json` に基づき、`references/01-design-system/` 配下の該当ディレクトリ（初期値: `m3-expressive`）から参照ファイルを読み込んで適用すること。
-2. **カラーロールとトークンの適用**
-   - Hex値の直書きを排除し、Color Roles（`Primary`, `On Primary`, `Surface`, `On Surface` 等）のCSS変数またはフレームワーク対応トークンを使用すること。
-   - `references/01-design-system/m3-expressive/color-roles.md` の仕様に従うこと。
-3. **形状スケール（Shape Scale）の適用**
-   - M3 Corner Radii（`None: 0px`, `Small: 8px`, `Medium: 12px`, `Large: 16px`, `Extra Large: 28px`, `Full: 9999px`）およびMorphingルールを適用すること。
-   - `references/01-design-system/m3-expressive/expressive-shapes.md` の仕様に従うこと。
-4. **コンポーネント選定**
-   - 目的（Navigation, Action, Input, Display）に合致する規格コンポーネントを選定・配置すること。
-   - `references/01-design-system/m3-expressive/component-specs.md` の仕様に従うこと。
+### Phase 1: 静的スタイリング（M3 Static Tokens）
+骨組み確定後、M3デザインシステムトークンを適用すること。
+1. **Color Rolesの割り当て**: HEX直接指定を禁止し、Primary, On Primary, Primary Container, Surface, On Surface 等の役割ベースでカラーを割り当てること。
+2. **Typography Scale**: Display, Headline, Title, Body, Label の5分類・スケールに従うこと。
+3. **Shape Scale**: Extra Small (4px) 〜 Full (9999px) の角丸スケールを適用すること。
+4. **デザインシステムの選択・拡張性**: 指定がない場合は `m3-expressive` を適用すること。将来別のデザインシステムが指定された場合は `references/01-design-system/` 配下の該当ディレクトリを参照すること。
+5. **参照ドキュメント**: `references/01-design-system/m3-expressive/color-roles.md`, `expressive-shapes.md`, `component-specs.md` を読み込んで適用すること。
 
-### Phase 3: 動的表現の付与（Expressive Motion）
-1. **モーション物理と状態変化の適用**
-   - スプリング物理パラメータおよび Emphasized Easing（`cubic-bezier(0.2, 0.0, 0.0, 1.0)`）を状態変化および画面遷移に適用すること。
-   - `references/01-design-system/m3-expressive/expressive-motion.md` の仕様に従うこと。
+### Phase 2: 動的表現（M3 Expressive Motion）
+静的スタイリング完了後、アニメーションと状態変化を定義すること。
+1. **イージング・スプリング適用**: Emphasized Easing, Spring Physics を状態遷移・モーフィングに適用すること。
+2. **参照ドキュメント**: `references/01-design-system/m3-expressive/expressive-motion.md` を読み込んで適用すること。
 
-### Phase 4: 検証およびフィードバックプロトコル
-
-#### Layer 1: 静的コード検証（Static Verification）
-1. **静的検証の実行**
-   - `scripts/verify-ui.js` または同等の検証基準（WCAG 2.2 AA基準：コントラスト比 4.5:1 以上、タップターゲット 48x48dp 以上、ARIA属性の整合性）を実行すること。
-2. **エラー修正手順**
-   - 規約違反が検出された場合、違反箇所に対応するコード改修案を出力し、該当ファイルを上書き更新すること。
-
-#### Layer 2: 視覚的評価（Visual Verification）
-1. **対応ツールの有無の確認**
-   - 実行環境において画面キャプチャ・ブラウザ表示取得機能（Playwright MCP, Playwright CLI, ツール内ブラウザ等）が利用可能か確認すること。
-2. **視覚チェックの実行**
-   - 利用可能な場合、ローカル描画スクリーショットを取得し、要素の重なり（Overflow）、グリッドからの逸脱、トークン不整合の有無を検証すること。
-   - 不整合が検出された場合、修正案を生成して該当コードを更新すること。
-   - 視覚ツールが利用不可能な環境の場合、Layer 1 の検証全項目クリアをもって人間への確認依頼ステップへ進むこと。
-
-## 3. プロジェクト固有ルールの保持・書き込みプロトコル
-
-1. **`.ui-rules.json` の作成・更新プロトコル**
-   - プロジェクト固有のカスタムトークン（標準M3に含まれないブランド固有のカラーHex値、専用余白規約等）が確定した場合、リポジトリ直下の `.ui-rules.json` に追記・保存すること。
-   - ファイルが存在しない場合は以下の標準スキーマに従って `.ui-rules.json` を新規作成すること：
-   ```json
-   {
-     "$schema": "https://json-schema.org/draft/2020-12/schema",
-     "version": "1.0",
-     "designSystem": "m3-expressive",
-     "tokens": {
-       "color": {},
-       "shape": {},
-       "spacing": {}
-     },
-     "exceptions": []
-   }
-   ```
-   - 既存の `.ui-rules.json` が存在する場合は、定義済みスキーマおよびフォーマットスタイル（インデント等）を厳格に維持した上で差分のみを追記すること。
-2. **コアシステム設定ファイルの改修プロトコル**
-   - `tailwind.config.js`, `package.json`, `tsconfig.json` 等のビルド・基盤設定ファイルの修正が必要な場合、ファイルを直接変更せず、提案する変更差分（Diff）を人間に提示し、承認を求めること。
+### Phase 3: 検証とフィードバック（Verification Protocol）
+1. **Layer 1 (静的コード検証)**:
+   - スクリプト実行環境が存在する場合、`scripts/verify-ui.js` を実行し、WCAG 2.2基準（対比比率 4.5:1以上、タップターゲットサイズ 48x48dp以上）の検証結果を取得すること。
+   - 規約違反が検出された場合、違反箇所に対応するコード改修案を生成し、該当ファイルを更新すること。
+2. **Layer 2 (描画視覚検証)**:
+   - 実行環境に画面撮影および視覚認識（VLM）対応ツールが存在する場合、ローカル画面キャプチャを取得し、「要素の重なり（Overflow）」「グリッドアライメントのずれ」「カラーコントラスト違反」の有無を検証すること。
+   - 違反が判定された場合、コード改修を行い、再キャプチャ・評価手順を実行すること。
+3. **Layer 3 (人間実機確認の要請)**:
+   - Layer 1（および利用可能な場合の Layer 2）の検証項目をすべてパスした後、変更点および確認要求項目を整理して人間に実機確認を依頼すること。

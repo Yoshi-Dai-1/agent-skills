@@ -1,11 +1,8 @@
-# Material 3 Expressive Motion Physics
+# Material 3 Expressive Motion Physics & Easing
 
-## 1. Motion Tokens
-- `Emphasized Easing`: `cubic-bezier(0.2, 0.0, 0.0, 1.0)` (標準のアニメーション遷移)
-- `Emphasized Decelerate`: `cubic-bezier(0.05, 0.7, 0.1, 1.0)` (画面内への要素進入)
-- `Emphasized Accelerate`: `cubic-bezier(0.3, 0.0, 0.8, 0.15)` (画面外への要素退場)
+## 1. イージング曲線 (Easing)
+- **Emphasized Easing**: 画面全体の大きな展開やダイナミックなアテンション誘発に使用すること。
+- **Standard Easing**: 標準的なコンポーネントの位置・サイズ変化に使用すること。
 
-## 2. Duration Tokens
-- `Short`: 100ms - 200ms (マイクロインタラクション、ホバー状態変化)
-- `Medium`: 250ms - 400ms (小〜中規模のコンポーネント状態変更)
-- `Long`: 450ms - 600ms (画面全体のレイアウト遷移・ダイアログ展開)
+## 2. スプリング物理 (Spring Physics)
+- 物理的なバネ（Spring）の挙動に基づき、過度な揺れや不自然な加速を抑えた滑らかなイージングアニメーションを適用すること。
