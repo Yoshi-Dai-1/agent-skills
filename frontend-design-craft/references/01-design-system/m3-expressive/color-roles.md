@@ -1,7 +1,7 @@
 # Material 3 Color Roles Specifications
 
 ## 1. ダイナミックカラーロール（Color Roles）
-カラーコード（Hex値）の直書きを禁止し、以下のセマンティックロールを割り当てること。
+カラーコード（Hex値）の直書きを禁止し、以下のセマンティックロールを割り当てる。
 
 ### アクセントロール (Accent Roles)
 - **`Primary` / `On Primary`**: ページ内で最も重要なアクション・要素（FAB、Primary Buttonなど）。

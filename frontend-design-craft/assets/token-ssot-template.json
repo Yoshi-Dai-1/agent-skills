@@ -1,0 +1,30 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "primitive": {
+    "color": {
+      "neutral-100": { "$value": "#ffffff", "$type": "color" },
+      "neutral-900": { "$value": "#111827", "$type": "color" },
+      "brand-500": { "$value": "#3b82f6", "$type": "color" }
+    },
+    "font": {
+      "sans": { "$value": "system-ui, sans-serif", "$type": "fontFamily" }
+    },
+    "space": {
+      "md": { "$value": "16px", "$type": "dimension" }
+    }
+  },
+  "semantic": {
+    "color": {
+      "background": { "$value": "{primitive.color.neutral-100}", "$type": "color" },
+      "text": { "$value": "{primitive.color.neutral-900}", "$type": "color" },
+      "primary": { "$value": "{primitive.color.brand-500}", "$type": "color" }
+    }
+  },
+  "component": {
+    "button": {
+      "bg": { "$value": "{semantic.color.primary}", "$type": "color" },
+      "text": { "$value": "{primitive.color.neutral-100}", "$type": "color" },
+      "padding": { "$value": "{primitive.space.md}", "$type": "dimension" }
+    }
+  }
+}

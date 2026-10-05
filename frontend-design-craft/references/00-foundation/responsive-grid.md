@@ -1,12 +1,27 @@
-# Material 3 Responsive Layout Grid & Breakpoints
+# Responsive Layout Grid Guidelines (Material 3 Foundations)
 
-## 1. カラム＆ブレイクポイント定義
-- **Compact (Width < 600dp)**: 4 Columns, Margin 16dp, Gutter 16dp
-- **Medium (600dp <= Width < 840dp)**: 8 Columns, Margin 24dp, Gutter 24dp
-- **Expanded (Width >= 840dp)**: 12 Columns, Margin 24dp, Gutter 24dp
+## 1. ブレイクポイントと画面スケール
+画面幅（Width）に応じた3つの標準スケールを定義する。
 
-## 2. カノニカルレイアウト (Canonical Layouts)
-画面サイズに応じたレイアウト変容ルール：
-- **Feed**: リスト形式のスクロール可能コンテンツ領域。
-- **List-Detail**: 左側にリスト、右側に詳細画面（Medium以上で並列表示）。
-- **Supporting Pane**: メインコンテンツの横に補助パネルを配置。
+- **Compact (< 600dp / px)**:
+  - カラム数: 4
+  - マージン: 16dp
+  - ガター (Gutter): 16dp
+  - 対象: スマートフォン縦画面
+
+- **Medium (600dp - 839dp)**:
+  - カラム数: 8
+  - マージン: 24dp
+  - ガター: 24dp
+  - 対象: タブレット縦画面、折りたたみデバイス
+
+- **Expanded (>= 840dp)**:
+  - カラム数: 12
+  - マージン: 24dp 〜 32dp (可変)
+  - ガター: 24dp
+  - 対象: デスクトップ、大型画面
+
+## 2. カノニカル・レイアウトパターン (Canonical Layouts)
+- **List-Detail**: 左側にリスト領域、右側に詳細領域を配置。Compact画面では画面遷移、Expanded画面では2カラム分割。
+- **Feed**: カード型コンポーネントをグリッド状に並べる。画面幅に応じて1〜4列にスケール。
+- **Supporting Pane**: メイン領域の隣に一時的または常駐型の補助パネルを配置。
