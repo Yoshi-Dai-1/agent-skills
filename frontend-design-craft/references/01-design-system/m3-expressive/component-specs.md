@@ -1,13 +1,15 @@
-# Material 3 Component Specifications
+# Material 3 Component Selection Specs
 
-## 1. アクションコンポーネント
-- **Button**: Filled (Primary), Tonal (Secondary), Outlined (Tertiary), Text (Low emphasis)。
-- **Floating Action Button (FAB)**: 画面の最優先アクション。右下配置。サイズ: Standard (56x56dp), Small (40x40dp), Large (96x96dp)。
+## 1. Actions
+- `Common Button`: 画面内の標準アクション。
+- `FAB (Floating Action Button)`: 画面内で最も重要かつ単一のプライマリアクション。
 
-## 2. ナビゲーションコンポーネント
-- **Navigation Bar**: Compact画面用のボトムナビゲーション (3〜5アイテム)。
-- **Navigation Rail**: Medium / Expanded画面用のサイドナビゲーション。
-- **Top App Bar**: 画面タイトルおよびコンテキストアクション。
+## 2. Navigation
+- `Navigation Bar`: Compact画面における画面下部導線（3〜5項目）。
+- `Navigation Rail`: Medium/Expanded画面における画面左側垂直導線。
+- `Navigation Drawer`: 多数の階層導線を含むサイドスライドメニュー。
 
-## 3. タップターゲットサイズ (WCAG 2.2 / M3)
-- すべてのインタラクティブ要素の最小タップ領域は **48x48dp** (CSS px換算で最低48x48px) を確保すること。
+## 3. Containment
+- `Card (Elevated / Filled / Outlined)`: 独立した情報単位のグループ化。
+- `Dialog`: ユーザーの確定・選択を求めるモーダル領域。
+- `Bottom Sheet`: 画面下部から昇降するコンテキストアクション領域。

@@ -1,15 +1,15 @@
-# Semantic Skeleton & Accessibility Guidelines (W3C ARIA APG)
+# W3C ARIA APG Semantic Skeleton Guide
 
-## 1. 必須 ARIA ランドマーク（Landmark Roles）
-すべてのページ構造は、以下の標準ランドマーク要素で構成されなければならない。
+## 1. Standard Landmark Regions
+すべての画面において、以下のW3C ARIA標準ランドマーク構造を必ず維持すること。
 
-- **`header` / `role="banner"`**: ページの主要ヘッダーおよびブランディング。全ページに1つ。
-- **`nav` / `role="navigation"`**: 主要ナビゲーションリンク群。複数存在する場合は `aria-label` で明確に区別すること。
-- **`main` / `role="main"`**: ページのプライマリコンテンツ領域。全ページに原則1つ。
-- **`aside` / `role="complementary"`**: メインコンテンツをサポートするサイドパネル・補助領域。
-- **`footer` / `role="contentinfo"`**: 著作権情報、補足リンク、ページフッター。
+- `<header role="banner">`: アプリケーションヘッダーおよび最上位タイトルの配置。
+- `<nav role="navigation">`: メインナビゲーション（Navigation Rail, Drawer, Bottom Navigation）の配置。
+- `<main role="main">`: ページの主要コンテンツ領域。1画面につき1つのみ配置。
+- `<aside role="complementary">`: 補助パネル、サポーティングペイン、コンテキスト情報の配置。
+- `<footer role="contentinfo">`: ページフッター、著作権、補足リンクの配置。
 
-## 2. インタラクティブ要素とアクセシブルネーム
-- **`<button>`**: 視覚的テキストが存在しないアイコンボタンには、必ず `aria-label` 属性を指定すること。
-- **フォーム入力**: すべての `<input>`, `<select>`, `<textarea>` は `<label>` 要素と `id` / `for` 結合、または `aria-labelledby` で関連付けること。
-- **キーボード操作**: インタラクティブな全要素は `Tab` キーでフォーカス可能であり、`Enter` / `Space` キーで実行可能でなければならない。
+## 2. Interactive Element Semantics
+- クリック可能な要素には `<button>` を使用し、`<div onClick>` を禁止すること。
+- テキスト入力には `<input>`, `<textarea>` を使用し、明確に対応する `<label>` または `aria-label` を付与すること。
+- 画像要素には具体的な説明を含む `alt` 属性を付与し、装飾目的の画像には `alt=""` および `aria-hidden="true"` を設定すること。
