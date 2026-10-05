@@ -1,23 +1,12 @@
-# Responsive Grid & Breakpoint Specifications
+# Material 3 Responsive Layout Grid & Breakpoints
 
-## 1. M3 レスポンシブブレイクポイント
-- **Compact (Window width < 600dp)**:
-  - ターゲット: モバイル端末（縦持ち）
-  - カラム数: **4**
-  - マージン: **16dp**
-  - ガター (Gutter): **16dp**
-- **Medium (Window width 600dp - 839dp)**:
-  - ターゲット: タブレット（縦持ち）、折りたたみ端末
-  - カラム数: **8**
-  - マージン: **24dp**
-  - ガター (Gutter): **24dp**
-- **Expanded (Window width >= 840dp)**:
-  - ターゲット: デスクトップ、タブレット（横持ち）
-  - カラム数: **12**
-  - マージン: **24dp** または **auto**
-  - ガター (Gutter): **24dp**
+## 1. カラム＆ブレイクポイント定義
+- **Compact (Width < 600dp)**: 4 Columns, Margin 16dp, Gutter 16dp
+- **Medium (600dp <= Width < 840dp)**: 8 Columns, Margin 24dp, Gutter 24dp
+- **Expanded (Width >= 840dp)**: 12 Columns, Margin 24dp, Gutter 24dp
 
-## 2. レイアウトパターン (Canonical Layouts)
-- **Supporting Pane**: メイン領域とサイド補助領域の2カラム構成。
-- **List-Detail**: 一覧と詳細の2分割表示。
-- **Feed**: カード型カードがグリッド状に並ぶフィード表示。
+## 2. カノニカルレイアウト (Canonical Layouts)
+画面サイズに応じたレイアウト変容ルール：
+- **Feed**: リスト形式のスクロール可能コンテンツ領域。
+- **List-Detail**: 左側にリスト、右側に詳細画面（Medium以上で並列表示）。
+- **Supporting Pane**: メインコンテンツの横に補助パネルを配置。

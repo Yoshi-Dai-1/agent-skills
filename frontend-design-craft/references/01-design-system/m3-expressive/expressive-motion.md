@@ -1,8 +1,9 @@
 # Material 3 Expressive Motion Physics & Easing
 
-## 1. イージング曲線 (Easing)
-- **Emphasized Easing**: 画面全体の大きな展開やダイナミックなアテンション誘発に使用すること。
-- **Standard Easing**: 標準的なコンポーネントの位置・サイズ変化に使用すること。
+## 1. イージングカーブ (Easing Curves)
+- **Emphasized Easing**: アニメーションの標準。開始時に素早く動き、終了時に優雅に減速する。
+- **Emphasized Decelerate**: 要素が画面内に入ってくる運動に使用。
+- **Emphasized Accelerate**: 要素が画面外に退出する運動に使用。
 
 ## 2. スプリング物理 (Spring Physics)
-- 物理的なバネ（Spring）の挙動に基づき、過度な揺れや不自然な加速を抑えた滑らかなイージングアニメーションを適用すること。
+- トークンによる固定時間アニメーションではなく、質量・バネ定数・減衰比に基づいた自然な物理挙動を適用すること。
