@@ -1,20 +1,15 @@
-# Semantic Skeleton & ARIA APG Protocol
+# Semantic Skeleton & Accessibility Guidelines (W3C ARIA APG)
 
-## 1. HTML5 ランドマーク構造
-Webページの構造を明確化するため、以下のセマンティックタグを適切に分離・配置すること。
+## 1. 必須 ARIA ランドマーク（Landmark Roles）
+すべてのページ構造は、以下の標準ランドマーク要素で構成されなければならない。
 
-- `<header>` (role="banner"): ページ全体のヘッダーおよび主要ロゴ
-- `<nav>` (role="navigation"): 主要ナビゲーションリンク群
-- `<main>` (role="main"): ページの主要コンテンツエリア（1ページにつき1つ）
-- `<aside>` (role="complementary"): 補足情報、サイドバー
-- `<footer>` (role="contentinfo"): 著作権情報、フッターナビゲーション
+- **`header` / `role="banner"`**: ページの主要ヘッダーおよびブランディング。全ページに1つ。
+- **`nav` / `role="navigation"`**: 主要ナビゲーションリンク群。複数存在する場合は `aria-label` で明確に区別すること。
+- **`main` / `role="main"`**: ページのプライマリコンテンツ領域。全ページに原則1つ。
+- **`aside` / `role="complementary"`**: メインコンテンツをサポートするサイドパネル・補助領域。
+- **`footer` / `role="contentinfo"`**: 著作権情報、補足リンク、ページフッター。
 
-## 2. アクセシブルネームの付与
-すべての対話的要素（ボタン、フォーム、リンク）にはアクセシブルネームを設定すること。
-
-- アイコンのみのボタン: `aria-label` 属性で目的を明確に記述すること。
-- フォーム入力項目: `<label for="...">` で明示的に紐付けること。
-
-## 3. キーボードナビゲーション
-- フォーカス可能要素には適切な `tabindex="0"` またはセマンティックタグを使用すること。
-- 可視フォーカスリング（Focus Visible）を削除・非表示にしないこと。
+## 2. インタラクティブ要素とアクセシブルネーム
+- **`<button>`**: 視覚的テキストが存在しないアイコンボタンには、必ず `aria-label` 属性を指定すること。
+- **フォーム入力**: すべての `<input>`, `<select>`, `<textarea>` は `<label>` 要素と `id` / `for` 結合、または `aria-labelledby` で関連付けること。
+- **キーボード操作**: インタラクティブな全要素は `Tab` キーでフォーカス可能であり、`Enter` / `Space` キーで実行可能でなければならない。
