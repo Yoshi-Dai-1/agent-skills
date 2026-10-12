@@ -1,7 +1,7 @@
 # Material 3 Layout System Specifications
 
 ## 0. 適用範囲
-- 本ファイルは M3 の画面幅数値の正本とする。適応の原則（単→複ペイン、リフロー保証）は `00-foundation/responsive-grid.md` に従うこと。
+- 本ファイルは M3 の画面幅数値の正本とする。適応の原則（単→複ペイン、リフロー保証）は `references/00-foundation/responsive-grid.md` に従うこと。
 
 ## 1. ブレイクポイントと画面幅（M3正本値）
 画面幅（Width）に応じた5つの標準ブレイクポイント（旧称 window size classes）を定義する。

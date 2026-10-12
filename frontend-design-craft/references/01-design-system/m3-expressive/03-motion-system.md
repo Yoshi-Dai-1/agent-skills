@@ -35,4 +35,4 @@
 - 位置・サイズ・角丸には spatial を、色・透明度には effects を使うこと。alpha に spatial（バウンスで範囲外）を、位置に effects（慣性なしで機械的）を当てないこと。
 - Exit は `slowEffectsSpec` で一斉に終え、stagger を付けないこと（遅延知覚を避ける）。
 - 100ms 級の micro interaction（toggle 等）にオーバーシュートは無駄である。fast effects または standard を使うこと。
-- `prefers-reduced-motion` では morph・parallax・長時間 spring を抑制し、瞬時遷移または短い effects に切替えること。
+- `prefers-reduced-motion` では morph・parallax・長時間 spring を抑制し、瞬時遷移または短い effects に切り替えること。

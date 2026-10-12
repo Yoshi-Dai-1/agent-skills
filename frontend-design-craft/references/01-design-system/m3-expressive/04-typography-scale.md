@@ -1,8 +1,8 @@
 # Material 3 Typography Scale Specifications
 
 ## 0. 適用範囲と分担
-- 本ファイルは M3 type scale の割当て正本とする。和文の行高・1行文字数・最小文字サイズは `00-foundation/content-accessibility.md` が優先し、ここで上書きしないこと。
-- 色との組合せは `01-color-system.md` のペア規則、Button ラベルの文面規則は `00-foundation/content-accessibility.md` §3 に従うこと。
+- 本ファイルは M3 type scale の割当て正本とする。和文の行高・1行文字数・最小文字サイズは `references/00-foundation/content-accessibility.md` が優先し、ここで上書きしないこと。
+- 色との組合せは `01-color-system.md` のペア規則、Button ラベルの文言規則は `references/00-foundation/content-accessibility.md` §3 に従うこと。
 
 ## 1. スケール構成（30 styles）
 - 5 roles × 3 sizes：`Display Large / Medium / Small`、`Headline Large / Medium / Small`、`Title Large / Medium / Small`、`Body Large / Medium / Small`、`Label Large / Medium / Small`。
@@ -17,4 +17,4 @@
 
 ## 3. 運用規則
 - 階層は size・weight・色・間隔で作り、emphasized・大型・装飾を同時多用しないこと（usability の hero moments は画面の要所に限定）。
-- Major Second scale（key base 14、body 中心）に準拠し、デバイス別に style の増減が必要な場合のみ type scale を変更すること。Button ラベルの文面・同色規則は `06-component-specs.md` §1 に従うこと。
+- Major Second scale（key base 14、body 中心）に準拠し、デバイス別に style の増減が必要な場合のみ type scale を変更すること。Button ラベルの文言・同色規則は `06-component-specs.md` §1 に従うこと。
