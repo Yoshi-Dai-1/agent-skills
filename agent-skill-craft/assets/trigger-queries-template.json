@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "query": "対象スキルの領域の作業を手順化して。いま設定ファイル（設定ファイル名）を前提にしてほしい",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "id": 2,
+    "query": "SKILL.md を作って。設定ファイル（設定ファイル名）の中身を前提にした手順にして",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "id": 3,
+    "query": "この skill の指示書きを直して。設定ファイル（設定ファイル名）との食い違いがある",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "id": 4,
+    "query": "references をどう分けるべきか迷ってる。設定ファイル（設定ファイル名）と設定が分裂してる",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "id": 5,
+    "query": "この skill が発動しない。description を直したい",
+    "should_trigger": true,
+    "split": "validation"
+  },
+  {
+    "id": 6,
+    "query": "スキルの語彙がバラバラなので統一して。設定ファイル（設定ファイル名）との整合も見て",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "id": 7,
+    "query": "このスキルの eval して、before と after のどちらが安定した出力か判定して",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "id": 8,
+    "query": "公式仕様に適合しているか機械的にチェックして。設定ファイル（設定ファイル名）前提で",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "id": 9,
+    "query": "このスキルの分岐に未定義の状態がないか追跡して。設定ファイル（設定ファイル名）の扱いも含めて",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "id": 10,
+    "query": "新しいスキル用にファイル構成の叩き台を作って。設定ファイル（設定ファイル名）相当のものをどんな形にするか検討して",
+    "should_trigger": true,
+    "split": "validation"
+  },
+  {
+    "id": 11,
+    "query": "この CSV の売上合計を列ごとに計算してサマリ表として出してください",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "id": 12,
+    "query": "この SQL の slow query をインデックス追加で速くしてください",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "id": 13,
+    "query": "npm audit で脆弱性出てるから全部 patch してください",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "id": 14,
+    "query": "React のコンポーネントのテストを vitest で書いてください",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "id": 15,
+    "query": "Dockerfile を multistage 化してイメージサイズを半減させてください",
+    "should_trigger": false,
+    "split": "validation"
+  },
+  {
+    "id": 16,
+    "query": "GraphQL の N+1 問題の原因を調べ、Prisma で解決して",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "id": 17,
+    "query": "WCAG 2.2 AA のコントラスト比の最低基準は何でしょうか",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "id": 18,
+    "query": "pptx からテキストを抽出するスクリプトを書いてください",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "id": 19,
+    "query": "このグループのアクセスログを時系列にソートして",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "id": 20,
+    "query": "このライブラリのログを整形して重複エラーを抽出して",
+    "should_trigger": false,
+    "split": "validation"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "skill_name": "target-skill-name",
+  "evaluation_mode": "assertion",
+  "mode_reason": "対象スキルの出力が客観的に検証可能か主観的かを判断し、1 つ選ぶ。両者を含む場合は both にする。",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "利用者が実際に書きうる要求を 1 つ書くこと。",
+      "expected_output": "期待される結果の説明を書くこと。",
+      "files": [],
+      "assertions": []
+    }
+  ]
+}

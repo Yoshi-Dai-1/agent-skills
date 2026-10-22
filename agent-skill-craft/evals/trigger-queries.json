@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "query": "このリポジトリの frontend-design-craft スキルの修正を何度も繰り返してるんだけど、これって agent-skill-craft 側の問題じゃないか。ログ読んで原因分析して",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "id": 2,
+    "query": "M3 Expressive のファイル群に連番を付けるんだけど、どのファイルにどの連番が最適か。根拠を示して",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "id": 3,
+    "query": "SKILL.md に設計方針が書かれてると思うんだけど、他の記述と一貫してるか確認して",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "id": 4,
+    "query": "このスキルの適用範囲が明確になってない気がする。範囲内と範囲外をちゃんと書き分けてほしい",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "id": 5,
+    "query": "スキルの指示文に『目視』とか『手動確認』って書いてあるけど、AI エージェントに実行させるのにあれはおかしいよね",
+    "should_trigger": true,
+    "split": "validation"
+  },
+  {
+    "id": 6,
+    "query": "この検証スクリプトってすり抜けないの。漏れるケースがあれば直して",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "id": 7,
+    "query": "スキルの description だけ見ても発動しない気がするんだけど、トリガー評価して直せる",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "id": 8,
+    "query": "この skill を eval して、before と after のどちらが安定した出力になるか判定して",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "id": 9,
+    "query": "新しく作った skill の progressive disclosure が効いてない気がする。references の分割の最適な粒度を教えて",
+    "should_trigger": true,
+    "split": "train"
+  },
+  {
+    "id": 10,
+    "query": "参考資料が 3 段ネストになってるんだけど、公式の Agent Skills 仕様だと一つ不正じゃない",
+    "should_trigger": true,
+    "split": "validation"
+  },
+  {
+    "id": 11,
+    "query": "Material 3 Expressive の Primary palette の正しい Hex 値を教えて",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "id": 12,
+    "query": "React のコンポーネントのテストを vitest で書いてください",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "id": 13,
+    "query": "この CSV の売上合計を列ごとに計算してサマリ表として出してください",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "id": 14,
+    "query": "GraphQL の N+1 問題の原因を調べ、Prisma で解決して",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "id": 15,
+    "query": "WCAG 2.2 AA のコントラスト比の最低基準は何でしょうか",
+    "should_trigger": false,
+    "split": "validation"
+  },
+  {
+    "id": 16,
+    "query": "アクセシビリティ要件定義書（HDR）を作成してください",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "id": 17,
+    "query": "npm audit で脆弱性出てるから全部 patch してください",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "id": 18,
+    "query": "このグループのログを整形して重複のないエラーだけ抽出して",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "id": 19,
+    "query": "Dockerfile を multistage 化してイメージサイズを半減させてください",
+    "should_trigger": false,
+    "split": "train"
+  },
+  {
+    "id": 20,
+    "query": "この SQL の slow query をインデックス追加で速くしてください",
+    "should_trigger": false,
+    "split": "validation"
+  }
+]
