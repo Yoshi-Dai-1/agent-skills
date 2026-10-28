@@ -12,7 +12,7 @@ Usage:
 
 終了コード:
     0  成功
-    1  台帳エラー（不正な JSON、存在しない ID、未決済が残っている等）
+    1  台帳エラー（不正な JSON、存在しない ID、未決済が残っているなど）
     2  使用法エラー
 """
 import argparse
@@ -78,7 +78,7 @@ def cmd_list(args):
 
 def cmd_add(args):
     data = load(args.ledger)
-    # 冪等: 同一の file / line / kind / summary / evidence が既にあるときは既存を返す
+    # 冪等: 同一の file / line / kind / summary / evidence がすでにあるときは既存を返す
     for it in data["items"]:
         if (
             it.get("file") == args.file
@@ -145,7 +145,7 @@ def cmd_check(args):
     print(json.dumps(payload, ensure_ascii=False, indent=2))
     if missing_evidence:
         print(
-            f"Warning: 証拠の無い未決済事項が {len(missing_evidence)} 件あります"
+            f"Warning: 証拠のない未決済事項が {len(missing_evidence)} 件あります"
             f"（id: {[it.get('id') for it in missing_evidence]}）",
             file=sys.stderr,
         )
@@ -193,7 +193,7 @@ def main(argv):
         epilog=(
             "終了コード:\n"
             "  0  成功\n"
-            "  1  台帳エラー（不正な JSON、未決済の残存、存在しない ID 等）\n"
+            "  1  台帳エラー（不正な JSON、未決済の残存、存在しない ID など）\n"
             "  2  使用法エラー\n"
             "\n"
             "使用例:\n"

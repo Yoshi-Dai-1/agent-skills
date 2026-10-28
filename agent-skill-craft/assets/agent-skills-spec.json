@@ -1,0 +1,74 @@
+{
+  "_source": "https://agentskills.io/specification.md",
+  "_note": "Agent Skills 公式仕様から抽出した機械可読の正本。references/specification.md はこの内容を要約した記述、scripts/validate-skill.py はこの内容に対して検証する。3者を二重に持たない。",
+  "frontmatter": {
+    "required": {
+      "name": {
+        "min_length": 1,
+        "max_length": 64,
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+        "must_match_directory_name": true
+      },
+      "description": {
+        "min_length": 1,
+        "max_length": 1024
+      }
+    },
+    "optional": {
+      "license": {
+        "type": "string"
+      },
+      "compatibility": {
+        "type": "string",
+        "max_length": 500
+      },
+      "metadata": {
+        "type": "string_map"
+      },
+      "allowed-tools": {
+        "type": "space_separated_string",
+        "status": "experimental"
+      }
+    }
+  },
+  "directories": {
+    "required": [
+      "SKILL.md"
+    ],
+    "optional": [
+      "scripts",
+      "references",
+      "assets"
+    ],
+    "additional_allowed": true
+  },
+  "progressive_disclosure": {
+    "metadata_target_tokens": 100,
+    "skill_md_max_tokens": 5000,
+    "skill_md_max_lines": 500
+  },
+  "file_references": {
+    "root": "skill_directory",
+    "max_depth": 1,
+    "script_path": "relative_to_skill_directory"
+  },
+  "reference_files": {
+    "max_lines": 300,
+    "note": "運用ルール。目安であり、超えた場合は目次または分割を検討する"
+  },
+  "script_requirements": [
+    "self_contained_or_dependencies_documented",
+    "helpful_error_messages",
+    "handle_edge_cases_gracefully",
+    "help_option_documented",
+    "meaningful_exit_codes",
+    "stdout_for_data_stderr_for_diagnostics",
+    "non_interactive",
+    "idempotent",
+    "dry_run_for_destructive_operations"
+  ],
+  "validation": {
+    "command": "skills-ref validate <skill_dir>",
+    "reference_library": "https://github.com/agentskills/agentskills/tree/main/skills-ref"
+  }
+}

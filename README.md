@@ -22,7 +22,8 @@ frontend-design-craft/    # フロントエンド UI の構築・監査・改修
 
 - 1 skill = 1 ディレクトリ
 - 変更は PR ベース（private でも履歴を残す）
-- 検証手順は各 skill の SKILL.md に記載
+- 検証手順は各 skill の SKILL.md に記述
+- agent-skill-craft の規律追加は凍結し、残差は `agent-skill-craft/references/audit-protocol.md` の 7 節で管理する。既存規範の検証漏れの修正は凍結の対象外とする
 
 ### agent-skill-craft を発動する義務
 
@@ -42,7 +43,7 @@ frontend-design-craft/    # フロントエンド UI の構築・監査・改修
 # 公式仕様と運用ルールへの適合を検証する
 python3 agent-skill-craft/scripts/validate-skill.py agent-skill-craft --format text
 
-# 語彙揺れも検査する
+# 語族の混在も検証する
 python3 agent-skill-craft/scripts/validate-skill.py agent-skill-craft \
   --vocabulary agent-skill-craft/assets/vocabulary.json --format text
 
@@ -50,19 +51,19 @@ python3 agent-skill-craft/scripts/validate-skill.py agent-skill-craft \
 skills-ref validate ./agent-skill-craft
 ```
 
-### 監査の台帳
+### 正本の所在
 
-```bash
-# 未決済事項の追加（引用と行番号は必須）
-python3 agent-skill-craft/scripts/audit-ledger.py --ledger ledger.json add \
-  --file SKILL.md --line 42 --kind terminology \
-  --summary "語彙の揺れ" --evidence "SKILL.md:42 「原文の引用」"
+| 内容 | 正本 | 参照側 |
+|---|---|---|
+| 公式仕様の数値と規則 | `agent-skill-craft/assets/agent-skills-spec.json` | `references/specification.md`（要約）、`scripts/validate-skill.py`（検証） |
+| 語族（同一対象を指す別語の集合） | `agent-skill-craft/assets/vocabulary.json` | `references/vocabulary.md`（説明） |
+| 混入検出の語と許容語 | `agent-skill-craft/assets/foreign-tokens.json` | `scripts/validate-skill.py`（使用） |
 
-# 未決済の残存確認（残っていれば終了コード 1）
-python3 agent-skill-craft/scripts/audit-ledger.py --ledger ledger.json check
-```
+正本と参照側が二重に値を持たないこと。値が正本と食い違う場合は正本を直す。
 
-台帳ファイルは**対象スキルとは別の作業領域**に置く。既定の置き場所は対象スキルと同階層の `ledger.json` である。
+### 検証が見逃すもの
+
+機械検証は「機械で判定できるもの」の層だけが対象である。**機械検証の通過は品質を保証しない。** 検査の既知の限界は `agent-skill-craft/references/audit-protocol.md` の 7 節に記述している。設計の妥当性と日本語の自然さは人間が確認する。
 
 ### 公式検証ライブラリのインストール
 

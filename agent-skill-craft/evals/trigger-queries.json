@@ -1,121 +1,121 @@
 [
   {
     "id": 1,
-    "query": "このリポジトリの frontend-design-craft スキルの修正を何度も繰り返してるんだけど、これって agent-skill-craft 側の問題じゃないか。ログ読んで原因分析して",
+    "query": "この作業を毎回同じ手順でやりたい。~/work/monthly-report の月次まとめを定型化して",
     "should_trigger": true,
     "split": "train"
   },
   {
     "id": 2,
-    "query": "M3 Expressive のファイル群に連番を付けるんだけど、どのファイルにどの連番が最適か。根拠を示して",
+    "query": "SKILL.md を作って。/Users/yoshi_dai/repos/my-agent/skills/pdf-helper/ で、PDFの請求書から金額を抜き出す手順をまとめたい",
     "should_trigger": true,
     "split": "train"
   },
   {
     "id": 3,
-    "query": "SKILL.md に設計方針が書かれてると思うんだけど、他の記述と一貫してるか確認して",
+    "query": "このskilの指示がきが分かりづらい。refrencesの分け方を見直して",
     "should_trigger": true,
-    "split": "train"
+    "split": "validation"
   },
   {
     "id": 4,
-    "query": "このスキルの適用範囲が明確になってない気がする。範囲内と範囲外をちゃんと書き分けてほしい",
+    "query": "references をどう分けるべきか迷ってる。1ファイルに全部書いた方が読みやすい気がするんだけど",
     "should_trigger": true,
     "split": "train"
   },
   {
     "id": 5,
-    "query": "スキルの指示文に『目視』とか『手動確認』って書いてあるけど、AI エージェントに実行させるのにあれはおかしいよね",
+    "query": "この skill が発動しない。description を直したい",
     "should_trigger": true,
     "split": "validation"
   },
   {
     "id": 6,
-    "query": "この検証スクリプトってすり抜けないの。漏れるケースがあれば直して",
+    "query": "うちのスキルの言い回しバラバラなの直して",
     "should_trigger": true,
     "split": "train"
   },
   {
     "id": 7,
-    "query": "スキルの description だけ見ても発動しない気がするんだけど、トリガー評価して直せる",
+    "query": "/tmp/eval-ws でこのスキルの eval して、before と after のどちらが安定した出力か判定して",
     "should_trigger": true,
     "split": "train"
   },
   {
     "id": 8,
-    "query": "この skill を eval して、before と after のどちらが安定した出力になるか判定して",
+    "query": "作ったスキルが決まりに合ってるか機械で見て。チェックスクリプトある？",
     "should_trigger": true,
-    "split": "train"
+    "split": "validation"
   },
   {
     "id": 9,
-    "query": "新しく作った skill の progressive disclosure が効いてない気がする。references の分割の最適な粒度を教えて",
+    "query": "このスキルの分岐に未定義の状態がないか追跡して",
     "should_trigger": true,
     "split": "train"
   },
   {
     "id": 10,
-    "query": "参考資料が 3 段ネストになってるんだけど、公式の Agent Skills 仕様だと一つ不正じゃない",
+    "query": "新しいチャットボット用の定型手順の雛形が欲しい。ファイル構成から考えて",
     "should_trigger": true,
     "split": "validation"
   },
   {
     "id": 11,
-    "query": "Material 3 Expressive の Primary palette の正しい Hex 値を教えて",
+    "query": "うちのLPのヒーロー文を3案考えて。ファイルは ~/work/lp/index.html",
     "should_trigger": false,
     "split": "train"
   },
   {
     "id": 12,
-    "query": "React のコンポーネントのテストを vitest で書いてください",
+    "query": "SKILL.md の書き方じゃなくて中身の用件をレビューして。/docs/要件定義書.md の抜けを確認して",
     "should_trigger": false,
     "split": "train"
   },
   {
     "id": 13,
-    "query": "この CSV の売上合計を列ごとに計算してサマリ表として出してください",
+    "query": "Agent Skill って何？仕組みを教えて",
     "should_trigger": false,
-    "split": "train"
+    "split": "validation"
   },
   {
     "id": 14,
-    "query": "GraphQL の N+1 問題の原因を調べ、Prisma で解決して",
+    "query": "Excelの請求書集計、A列の合計を出す関数教えて。C:\\Users\\yamada\\Documents\\seikyu.xlsx",
     "should_trigger": false,
     "split": "train"
   },
   {
     "id": 15,
-    "query": "WCAG 2.2 AA のコントラスト比の最低基準は何でしょうか",
+    "query": "docker compose の volume がマウントされない。~/work/app/compose.yaml を見て",
     "should_trigger": false,
     "split": "validation"
   },
   {
     "id": 16,
-    "query": "アクセシビリティ要件定義書（HDR）を作成してください",
+    "query": "README に使い方を追記して。/Users/yoshi_dai/repos/agent-skills/README.md",
     "should_trigger": false,
     "split": "train"
   },
   {
     "id": 17,
-    "query": "npm audit で脆弱性出てるから全部 patch してください",
+    "query": "Pythonのスクリプトが動かない。Traceback を見て直して。/tmp/fix-target/tool.py",
     "should_trigger": false,
     "split": "train"
   },
   {
     "id": 18,
-    "query": "このグループのログを整形して重複のないエラーだけ抽出して",
+    "query": "スキルの発動条件じゃなくて、モデルの応答速度を上げたい。推論を速くする方法は？",
     "should_trigger": false,
-    "split": "train"
+    "split": "validation"
   },
   {
     "id": 19,
-    "query": "Dockerfile を multistage 化してイメージサイズを半減させてください",
+    "query": "コミットメッセージってどう書くのがいい？",
     "should_trigger": false,
     "split": "train"
   },
   {
     "id": 20,
-    "query": "この SQL の slow query をインデックス追加で速くしてください",
+    "query": "VSCode の拡張機能の作り方を教えて。公開手順も知りたい",
     "should_trigger": false,
     "split": "validation"
   }

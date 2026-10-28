@@ -1,16 +1,16 @@
 {
   "skill_name": "agent-skill-craft",
   "evaluation_mode": "both",
-  "mode_reason": "出力の半分は機械検証可能な仕様適合（frontmatter・参照深度・サイズ予算・リンク存在・異物混入・語彙揺れ）、半分は主観的な設計判断（分割粒度・語彙・適用範囲の妥当性）であるため、両方式を併用する。",
+  "mode_reason": "出力の半分は機械走査で判定可能な仕様適合（frontmatter・参照深度・サイズ予算・リンク存在・言語の混在・語彙揺れ）、半分は主観的な設計判断（分割粒度・語彙・適用範囲の妥当性）であるため、両方式を併用する。",
   "evals": [
     {
       "id": 1,
       "prompt": "agent-skill-craft を使って、同一リポジトリ内の別スキル（frontend-design-craft など）を公式 Agent Skills 仕様に照らして監査して。指摘は現行の原文引用と行番号付きで、未決済台帳は audit-ledger.py で管理して",
-      "expected_output": "仕様適合の機械検証結果（frontmatter・参照深度・リンク存在・サイズ予算・異物混入・語彙揺れ）と、機械では判定できない設計上の指摘（分割粒度・語彙・適用範囲）が分離して提示され、各指摘に path:line の引用が付いている。未決済台帳が audit-ledger.py によって別ファイルに保持され、未決済ゼロの状態で監査が終了している。",
+      "expected_output": "仕様適合の機械走査の結果（frontmatter・参照深度・リンク存在・サイズ予算・言語の混在・語彙揺れ）と、機械では判定できない設計上の指摘（分割粒度・語彙・適用範囲）が分離して提示され、各指摘に path:line の引用が付いている。未決済台帳が audit-ledger.py によって別ファイルに保持され、未決済ゼロの状態で監査が終了している。",
       "files": [],
       "assertions": [
         "各指摘に対象ファイルのパスと行番号の引用（path:line 形式）が含まれている",
-        "機械検証結果と主観的指摘が区別して提示されている",
+        "機械走査の結果と主観的指摘が区別して提示されている",
         "未決済台帳が audit-ledger.py により管理され、各事項に状態（open/closed）が設定されている",
         "未決済事項がゼロになった時点で監査が終了している（再監査の繰り返しがない）",
         "検出されなかった項目について「検出なし」と明記されているか、対象外である旨が明記されている"
@@ -19,14 +19,14 @@
     {
       "id": 2,
       "prompt": "新規で『CSVの売上データを月次サマリに変換する』Agent Skill を作って。description は発動しやすいように考慮して",
-      "expected_output": "Agent Skills 公式仕様に適合したスキルディレクトリ（SKILL.md、references 1段、scripts、evals）が生成される。SKILL.md の description は命令形・pushy で、利用者が CSV という語を使わずに表の集計を依頼した場合にも発動する。評価方式（assertion/human/both）が evals/evals.json の evaluation_mode と mode_reason に記録されている。",
+      "expected_output": "Agent Skills 公式仕様に適合したスキルディレクトリ（SKILL.md、references 1 段、scripts、evals）が生成される。SKILL.md の description は命令形・pushy で、利用者が CSV という語を使わずに表の集計を依頼した場合にも発動する。評価方式（assertion/human/both）が evals/evals.json の evaluation_mode と mode_reason に記録されている。",
       "files": [],
       "assertions": [
-        "生成された SKILL.md の description が 1024 文字以内である",
+        "生成した SKILL.md の description が 1024 文字以内である",
         "description に命令形の使用指示（use this skill when に相当する表現）が含まれる",
-        "evals/evals.json に evaluation_mode と、その選択理由が記録されている",
+        "evals/evals.json に evaluation_mode と mode_reason が記録されている",
         "references/ 配下のファイルが SKILL.md から 1 段深さで参照されている",
-        "生成したスキルが frontmatter に未定義のフィールドを含まない"
+        "生成したスキルの frontmatter が name と description を含み、name が親ディレクトリ名と一致する"
       ]
     },
     {

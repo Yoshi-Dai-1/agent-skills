@@ -1,25 +1,25 @@
 [
   {
     "id": 1,
-    "query": "対象スキルの領域の作業を手順化して。いま設定ファイル（設定ファイル名）を前提にしてほしい",
+    "query": "このスキルの指示書きを直して。現状の設計方針と食い違っている箇所がある",
     "should_trigger": true,
     "split": "train"
   },
   {
     "id": 2,
-    "query": "SKILL.md を作って。設定ファイル（設定ファイル名）の中身を前提にした手順にして",
+    "query": "SKILL.md を作って。用件は〇〇の作業を手順化したい",
     "should_trigger": true,
     "split": "train"
   },
   {
     "id": 3,
-    "query": "この skill の指示書きを直して。設定ファイル（設定ファイル名）との食い違いがある",
+    "query": "この skill の指示書きを直して。references の分け方が合わなくて",
     "should_trigger": true,
-    "split": "train"
+    "split": "validation"
   },
   {
     "id": 4,
-    "query": "references をどう分けるべきか迷ってる。設定ファイル（設定ファイル名）と設定が分裂してる",
+    "query": "references をどう分けるべきか迷ってる。1ファイルに全部書いた方が読みやすい",
     "should_trigger": true,
     "split": "train"
   },
@@ -31,7 +31,7 @@
   },
   {
     "id": 6,
-    "query": "スキルの語彙がバラバラなので統一して。設定ファイル（設定ファイル名）との整合も見て",
+    "query": "スキルの語彙がバラバラなので統一して",
     "should_trigger": true,
     "split": "train"
   },
@@ -43,79 +43,79 @@
   },
   {
     "id": 8,
-    "query": "公式仕様に適合しているか機械的にチェックして。設定ファイル（設定ファイル名）前提で",
+    "query": "公式仕様に適合しているか機械的にチェックして",
     "should_trigger": true,
-    "split": "train"
+    "split": "validation"
   },
   {
     "id": 9,
-    "query": "このスキルの分岐に未定義の状態がないか追跡して。設定ファイル（設定ファイル名）の扱いも含めて",
+    "query": "このスキルの分岐に未定義の状態がないか追跡して",
     "should_trigger": true,
     "split": "train"
   },
   {
     "id": 10,
-    "query": "新しいスキル用にファイル構成の叩き台を作って。設定ファイル（設定ファイル名）相当のものをどんな形にするか検討して",
+    "query": "新しいスキル用にファイル構成の叩き台を作って",
     "should_trigger": true,
     "split": "validation"
   },
   {
     "id": 11,
-    "query": "この CSV の売上合計を列ごとに計算してサマリ表として出してください",
+    "query": "このCSVの読み込み手順を確認して",
     "should_trigger": false,
     "split": "train"
   },
   {
     "id": 12,
-    "query": "この SQL の slow query をインデックス追加で速くしてください",
+    "query": "このDockerの依存関係を一覧化して",
     "should_trigger": false,
     "split": "train"
   },
   {
     "id": 13,
-    "query": "npm audit で脆弱性出てるから全部 patch してください",
+    "query": "このnpmの記法を確認して",
     "should_trigger": false,
-    "split": "train"
+    "split": "validation"
   },
   {
     "id": 14,
-    "query": "React のコンポーネントのテストを vitest で書いてください",
+    "query": "このReactの設定値を確認して",
     "should_trigger": false,
     "split": "train"
   },
   {
     "id": 15,
-    "query": "Dockerfile を multistage 化してイメージサイズを半減させてください",
+    "query": "このGraphQLの運用手順を調べて",
     "should_trigger": false,
     "split": "validation"
   },
   {
     "id": 16,
-    "query": "GraphQL の N+1 問題の原因を調べ、Prisma で解決して",
+    "query": "このSQLの読み込み手順を確認して",
     "should_trigger": false,
     "split": "train"
   },
   {
     "id": 17,
-    "query": "WCAG 2.2 AA のコントラスト比の最低基準は何でしょうか",
+    "query": "このWCAGの依存関係を一覧化して",
     "should_trigger": false,
     "split": "train"
   },
   {
     "id": 18,
-    "query": "pptx からテキストを抽出するスクリプトを書いてください",
+    "query": "このgitの記法を確認して",
     "should_trigger": false,
-    "split": "train"
+    "split": "validation"
   },
   {
     "id": 19,
-    "query": "このグループのアクセスログを時系列にソートして",
+    "query": "このPythonの設定値を確認して",
     "should_trigger": false,
     "split": "train"
   },
   {
     "id": 20,
-    "query": "このライブラリのログを整形して重複エラーを抽出して",
+    "query": "このPrismaの運用手順を調べて",
     "should_trigger": false,
     "split": "validation"
   }
