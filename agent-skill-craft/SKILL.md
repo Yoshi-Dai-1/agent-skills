@@ -65,7 +65,7 @@ Agent Skill（`SKILL.md` を含むディレクトリ）の設計・執筆・監�
 
 ### Phase 3: 検証（Verification）
 
-1. **Layer A（機械走査）**: `python3 scripts/validate-skill.py <対象スキルディレクトリ> --vocabulary assets/vocabulary.json` を実行する。`skills-ref` コマンドが PATH にある場合は `skills-ref validate <対象スキルディレクトリ>` も実行する。機械走査と自己監査の守備範囲は `references/audit-protocol.md` の 5 節に従う。
+1. **Layer A（機械走査）**: `python3 scripts/validate-skill.py <対象スキルディレクトリ> --vocabulary assets/vocabulary.json` を実行する。`skills-ref` コマンドが PATH にある場合は `skills-ref validate <対象スキルディレクトリ>` も実行する。守備範囲の確認のため `references/audit-protocol.md` の 5 節を読み、5 節に従う。
    - 公式の検証ライブラリが利用できない場合は `skills-ref` による検証だけを省略し、省略の事実と理由を報告する。
    - Python 3 の実行環境がない場合はこの Layer 全体を省略し、Layer B で grep による全文検索を行う。検索対象は語族の全語と `assets/foreign-tokens.json` の全語とし、結果は引用付きで記録する。**grep では代替できない項目（言語の混在の検出、語彙の混在の検出）は、Layer B の報告で「対象外（検証手段の守備範囲外）」として明示する。**
 2. **Layer B（証拠付き自己監査）**: `references/audit-protocol.md` を読み込み適用する。**この Layer では常に読み込む。** `scripts/audit-ledger.py` で未決済台帳を管理し、引用と行番号を伴わない指摘は採用しない。Layer A の検出結果も台帳に登録する。対象を全件走査し、未決済ゼロをもって終了する。
@@ -88,7 +88,7 @@ Agent Skill（`SKILL.md` を含むディレクトリ）の設計・執筆・監�
 - `references/vocabulary.md` を読み込み適用する。**語彙を使う記述では常に読み込む。**
 - 正本の所在は 1 箇所にまとめる。公式仕様は `assets/agent-skills-spec.json`、語族は `assets/vocabulary.json`、言語の混在の検出を補助する語は `assets/foreign-tokens.json` である。
 - 語族の混在の検証方法は `references/vocabulary.md` の 5 節に従う。
-- 言語の混在の判定方法は `references/audit-protocol.md` の 7 節に、記述の重複および矛盾の候補の検出方法は 5 節 9 番に従う。
+- 言語の混在の判定方法は `references/audit-protocol.md` の 7 節に、記述の重複および矛盾の候補の検出方法は `references/audit-protocol.md` の 5 節 9 番に従う。
 
 ## Gotchas
 
@@ -101,7 +101,7 @@ Agent Skill（`SKILL.md` を含むディレクトリ）の設計・執筆・監�
 - **description の undertrigger**: description が「何をするか」だけの説明型になると発動しない。命令形に書き、利用者が領域名を明示しない場合の発動条件も列挙する。
 - **成果物文体の誤適用**: 指示文向けの文体規則（読み手向けの解説を排するなど）を、対象スキルの成果物にも適用すると、文書作成系スキルの散文まで失われる。対象と成果物の文体を分ける。
 - **言語の混在**: 基準言語と異なる言語の語が、引用として明示されずに文中に埋め込まれると、文として成立しなくなる。引用符・コードスパン・独立行・括弧で囲われた連続塊は意図された引用として許可する。判定方法は `references/audit-protocol.md` の 7 節に従う。
-- **自己点検の不備**: 自分が作成した検証スクリプトは、自分のファイルも検証する。検証スクリプトが使う語彙データは検証対象から除外し、そのデータに混入があると誤検知する。
+- **自己点検の不備**: 自分が作成した検証スクリプトは、自分のファイルも検証する。検証スクリプトが使う語彙データは語彙検証では検証対象から除外し、そのデータに混入があると誤検知する。
 
 ## よくある誤り
 

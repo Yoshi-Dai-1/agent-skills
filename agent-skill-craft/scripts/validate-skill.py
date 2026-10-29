@@ -302,7 +302,7 @@ def check_vocab_consistency(skill_dir, vocab):
     """語彙表の定義表と正本 JSON の一致を検証する。
 
     - 2 節の表（統一語｜禁止形）と `term_families` の完全一致を確認する。
-    - `distinct_terms` の各語が 3 節の表に定義されていることを確認する。
+    - `distinct_terms` の各語が 1 節または 3 節の表に定義されていることを確認する。
     定義表と正本の二重管理のずれを検出する。
     """
     errors = []
@@ -314,12 +314,13 @@ def check_vocab_consistency(skill_dir, vocab):
     except OSError:
         return errors
 
-    in_sec2, in_sec3 = False, False
+    in_sec1, in_sec2, in_sec3 = False, False, False
     table_families = {}
     sec3_terms = set()
     for line in lines:
         s = line.strip()
         if s.startswith("## "):
+            in_sec1 = s.startswith("## 1.")
             in_sec2 = s.startswith("## 2.")
             in_sec3 = s.startswith("## 3.")
             continue
@@ -332,7 +333,7 @@ def check_vocab_consistency(skill_dir, vocab):
             continue
         if in_sec2 and len(cells) >= 3:
             table_families[cells[0]] = {w.strip() for w in cells[1].split("／") if w.strip()}
-        elif in_sec3 and len(cells) >= 2:
+        elif (in_sec1 or in_sec3) and len(cells) >= 2:
             sec3_terms.add(cells[0])
 
     json_families = {}
@@ -935,7 +936,7 @@ def check_text_files(skill_dir, allow_cjk, foreign_cjk, latin_allow, foreign_cha
                 text = open(p, encoding="utf-8").read()
             except (OSError, UnicodeDecodeError):
                 continue
-            if rel.startswith("evals/"):
+            if rel.startswith("evals/") or os.path.basename(rel) == "trigger-queries-template.json":
                 for i, token, line in detect_replacement_chars(text):
                     errors.append(f"{rel}:{i} 文字化け文字 (U+FFFD) が含まれています: {line[:80]}")
                 continue
@@ -1027,6 +1028,24 @@ def check_spec_consistency(skill_dir, spec):
                 f"（記述: {m.group(1)} / 正本: {expected}）"
             )
 
+    ref_max = spec.get("reference_files", {}).get("max_lines")
+    if ref_max is not None:
+        refdir = os.path.join(skill_dir, "references")
+        if os.path.isdir(refdir):
+            for root, _dirs, files in os.walk(refdir):
+                for f in sorted(files):
+                    if not f.endswith(".md") or f.startswith("."):
+                        continue
+                    p = os.path.join(root, f)
+                    try:
+                        nlines = len(open(p, encoding="utf-8").read().split("\n"))
+                    except OSError:
+                        continue
+                    if nlines > ref_max:
+                        errors.append(
+                            f"{os.path.relpath(p, skill_dir)} が {ref_max} 行を超えています"
+                            f"（実際 {nlines} 行 / 正本: {ref_max}）"
+                        )
     desc_max = fm.get("required", {}).get("description", {}).get("max_length")
     if desc_max is not None:
         ev = os.path.join(skill_dir, "references", "evaluation.md")

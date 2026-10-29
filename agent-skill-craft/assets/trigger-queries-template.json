@@ -1,25 +1,25 @@
 [
   {
     "id": 1,
-    "query": "このスキルの指示書きを直して。現状の設計方針と食い違っている箇所がある",
+    "query": "この作業を毎回同じ手順でやりたい。~/work/monthly-report の月次まとめを定型化して",
     "should_trigger": true,
     "split": "train"
   },
   {
     "id": 2,
-    "query": "SKILL.md を作って。用件は〇〇の作業を手順化したい",
+    "query": "SKILL.md を作って。~/work/my-agent/skills/pdf-helper/ で、PDFの請求書から金額を抜き出す手順をまとめたい",
     "should_trigger": true,
     "split": "train"
   },
   {
     "id": 3,
-    "query": "この skill の指示書きを直して。references の分け方が合わなくて",
+    "query": "このskilの指示がきが分かりづらい。refrencesの分け方を見直して",
     "should_trigger": true,
     "split": "validation"
   },
   {
     "id": 4,
-    "query": "references をどう分けるべきか迷ってる。1ファイルに全部書いた方が読みやすい",
+    "query": "references をどう分けるべきか迷ってる。1ファイルに全部書いた方が読みやすい気がするんだけど",
     "should_trigger": true,
     "split": "train"
   },
@@ -31,19 +31,19 @@
   },
   {
     "id": 6,
-    "query": "スキルの語彙がバラバラなので統一して",
+    "query": "うちのスキルの言い回しバラバラなの直して",
     "should_trigger": true,
     "split": "train"
   },
   {
     "id": 7,
-    "query": "このスキルの eval して、before と after のどちらが安定した出力か判定して",
+    "query": "/tmp/eval-ws でこのスキルの eval して、before と after のどちらが安定した出力か判定して",
     "should_trigger": true,
     "split": "train"
   },
   {
     "id": 8,
-    "query": "公式仕様に適合しているか機械的にチェックして",
+    "query": "作ったスキルが決まりに合ってるか機械で見て。チェックスクリプトある？",
     "should_trigger": true,
     "split": "validation"
   },
@@ -55,67 +55,67 @@
   },
   {
     "id": 10,
-    "query": "新しいスキル用にファイル構成の叩き台を作って",
+    "query": "新しいチャットボット用の定型手順の雛形が欲しい。ファイル構成から考えて",
     "should_trigger": true,
     "split": "validation"
   },
   {
     "id": 11,
-    "query": "このCSVの読み込み手順を確認して",
+    "query": "うちのLPのヒーロー文を3案考えて。ファイルは ~/work/lp/index.html",
     "should_trigger": false,
     "split": "train"
   },
   {
     "id": 12,
-    "query": "このDockerの依存関係を一覧化して",
+    "query": "SKILL.md の書き方じゃなくて中身の用件をレビューして。/docs/要件定義書.md の抜けを確認して",
     "should_trigger": false,
     "split": "train"
   },
   {
     "id": 13,
-    "query": "このnpmの記法を確認して",
+    "query": "Agent Skill って何？仕組みを教えて",
     "should_trigger": false,
     "split": "validation"
   },
   {
     "id": 14,
-    "query": "このReactの設定値を確認して",
+    "query": "Excelの請求書集計、A列の合計を出す関数教えて。C:\\Users\\yamada\\Documents\\seikyu.xlsx",
     "should_trigger": false,
     "split": "train"
   },
   {
     "id": 15,
-    "query": "このGraphQLの運用手順を調べて",
+    "query": "docker compose の volume がマウントされない。~/work/app/compose.yaml を見て",
     "should_trigger": false,
     "split": "validation"
   },
   {
     "id": 16,
-    "query": "このSQLの読み込み手順を確認して",
+    "query": "README に使い方を追記して。~/repos/agent-skills/README.md",
     "should_trigger": false,
     "split": "train"
   },
   {
     "id": 17,
-    "query": "このWCAGの依存関係を一覧化して",
+    "query": "Pythonのスクリプトが動かない。Traceback を見て直して。/tmp/fix-target/tool.py",
     "should_trigger": false,
     "split": "train"
   },
   {
     "id": 18,
-    "query": "このgitの記法を確認して",
+    "query": "スキルの発動条件じゃなくて、モデルの応答速度を上げたい。推論を速くする方法は？",
     "should_trigger": false,
     "split": "validation"
   },
   {
     "id": 19,
-    "query": "このPythonの設定値を確認して",
+    "query": "コミットメッセージってどう書くのがいい？",
     "should_trigger": false,
     "split": "train"
   },
   {
     "id": 20,
-    "query": "このPrismaの運用手順を調べて",
+    "query": "VSCode の拡張機能の作り方を教えて。公開手順も知りたい",
     "should_trigger": false,
     "split": "validation"
   }

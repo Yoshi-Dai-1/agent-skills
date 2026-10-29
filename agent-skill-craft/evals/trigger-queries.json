@@ -7,7 +7,7 @@
   },
   {
     "id": 2,
-    "query": "SKILL.md を作って。/Users/yoshi_dai/repos/my-agent/skills/pdf-helper/ で、PDFの請求書から金額を抜き出す手順をまとめたい",
+    "query": "SKILL.md を作って。~/work/my-agent/skills/pdf-helper/ で、PDFの請求書から金額を抜き出す手順をまとめたい",
     "should_trigger": true,
     "split": "train"
   },
@@ -91,7 +91,7 @@
   },
   {
     "id": 16,
-    "query": "README に使い方を追記して。/Users/yoshi_dai/repos/agent-skills/README.md",
+    "query": "README に使い方を追記して。~/repos/agent-skills/README.md",
     "should_trigger": false,
     "split": "train"
   },
